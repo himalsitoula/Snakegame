@@ -6,16 +6,24 @@ import java.util.Random;
 public class GamePanel extends JPanel implements ActionListener  {
 	static final int SCREEN_WIDTH = 600;
 	static final int SCREEN_HEIGHT = 600;
-	static final int UNIT_SIZE = 25;//HOW BIG YOU WANT THE OBJECTS TO BE IN THE SCREEN
+	
+	//HOW BIG YOU WANT THE OBJECTS TO BE IN THE SCREEN
+	static final int UNIT_SIZE = 25;
+	
+	//HOW MANY UNITS OF SIZE 25 ARE THERE IN THE WHOLE SCREEN FOR THIS ITS 14,400
 	static final int GAME_UNITS =(SCREEN_WIDTH*SCREEN_HEIGHT)/UNIT_SIZE;//HOW MANY OBJECTS TO FIT IN THE SCREEN
 	static final int DELAY = 75;//DEALY FOR THE GAME
+	
+	//HOLDS X COMPONENT FOR ALL THE SNAKES BODY PARTS . THE ARRAY SIZE IS SET TO MAXIMUM UNITS A SCREEN CAN HOLD
 	final int x[] = new int[GAME_UNITS];
+	
+	//HOLDS Y COMPONENT FOR ALL THE SNAKES BODY PARTS . THE ARRAY SIZE IS SET TO MAXIMUM UNITS A SCREEN CAN HOLD
 	final int y[] = new int[GAME_UNITS];
 	int bodyParts = 6;
 	int applesEaten;
-	int appleX;
-	int appleY;
-	char direction ='R';
+	int appleX; //X COMPONENT WHERE A APPLE IS ON THE SCREEN
+	int appleY; //Y COMPONENT WHERE A APPLE IS ON THE SCREEN
+	char direction ='R';//INITIAL DIRECTION OF THE SANKE
 	boolean running = false;
 	Timer timer;
 	Random random;
@@ -113,19 +121,19 @@ public class GamePanel extends JPanel implements ActionListener  {
 				running = false;
 			}
 		}
-			//check if head touches left border
+			//CHECKS IF THE HEAD TOUCHES LEFT BOARDER
 				if(x[0] < 0) {
 					running = false;
 				}
-				//check if head touches right border
+				//CHECKS IF THE HEAD TOUCHES RIGHT BOARDER
 				if(x[0] > SCREEN_WIDTH) {
 					running = false;
 				}
-				//check if head touches top border
+				//CHECKS IF THE HEAD TOUCHES TOP BOARDER
 				if(y[0] < 0) {
 					running = false;
 				}
-				//check if head touches bottom border
+				//CHECKS IF THE HEAD TOUCHES TOP BOARDER
 				if(y[0] > SCREEN_HEIGHT) {
 					running = false;
 				}
